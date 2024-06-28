@@ -24,13 +24,29 @@ app.transaction("/buy", (c) => {
   });
 });
 
+app.transaction("/buy10", (c) => {
+  const { address } = c;
+  return c.contract({
+    abi,
+    chainId: "eip155:8453",
+    functionName: "purchase",
+    args: [10n, address as `0x${string}`],
+    to: "0x0615cfa29ab591299f52211c1df7a89526c9f36a",
+    value: parseEther("0.0028"),
+    attribution: true,
+  });
+});
+
 app.frame("/", (c) => {
   return c.res({
     image: "https://thealbum.com/og-image.png",
     title: "The Album",
     intents: [
       <Button.Transaction target="/buy" action="/receipt">
-        Buy Album
+        -88s
+      </Button.Transaction>,
+      <Button.Transaction target="/buy10" action="/receipt">
+        -2mins
       </Button.Transaction>,
     ],
   });
