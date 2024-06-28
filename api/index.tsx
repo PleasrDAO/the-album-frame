@@ -8,7 +8,7 @@ export const app = new Frog({
   assetsPath: "/",
   basePath: "/api",
   browserLocation: "https://thealbum.com",
-  origin: "https://the-album.terminally.online",
+  origin: "https://the-album-frame.vercel.app/",
 });
 
 app.transaction("/buy", (c) => {
